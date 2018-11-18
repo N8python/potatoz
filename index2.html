@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Potatoz</title>
+  <link rel="stylesheet" href="styles2.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+  <div id="pN" class="blackDiv">
+    <br>
+    <br>
+    <br>
+    <p id="changeP"> &gt; Potato production begins! </p>
+  </div>
+  <div id="potatoz" class="largeDiv">
+    <p id="moveUp"> Potatoz: 0 </p>
+  </div>
+  <table id="display">
+    <tr>
+      <td>
+        <div id="pLogic">
+          <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="makeButon" onclick="makePotato()">Make Potato</button>
+          <p class="moveP" id="freePos">Unused Potatoes: 0</p>
+          <div id="sRes" hidden>
+            <p class="moveP w3-small" id="fries">French Fries: 0</p>
+            <p class="moveP w3-small" id="mashed">Mashed Potatoes(lbs): 0</p>
+          </div>
+        </div>
+        <div id="patchLogic" hidden>
+          <br>
+          <p class="moveP">Purchase patches:</p>
+          <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="patchButton" onclick="makePatch()">Purchase patch for 100 Potatoes</button>
+          <p class="moveP" id="patchNum">Patches: 0</p>
+        </div>
+        <div id="farmLogic" hidden>
+          <br>
+          <p class="moveP">Purchase farms:</p>
+          <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="farmButton" onclick="makeFarm()">Purchase farm for 500 Potatoes</button>
+          <p class="moveP" id="farmNum">Farms: 0</p>
+        </div>
+      </td>
+      <td>
+        <div id="catLogic" hidden>
+          <p class="moveP">Purchase potato cats:</p>
+          <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="catButton" onclick="makeCat()">Purchase potato cat for 1750 Potatoes</button>
+          <p class="moveP" id="catNum">Available Cats: 0</p>
+        </div>
+        <div id="sLogic" hidden>
+          <table>
+            <tr>
+              <td>
+                <div id="fLogic">
+                  <p class="moveP">Assign farmer cats:</p>
+                  <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="farmerButton" onclick="makeFarmer()">Assign Farmer Cat</button>
+                  <p class="moveP" id="farmerNum">Farmer Cats: 0</p>
+                </div>
+              </td>
+              <td>
+                <div id="bLogic" hidden>
+                  <p class="moveP">Assign soldier cats:</p>
+                  <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="sButton" onclick="makeSoldier()">Assign Soldier Cat</button>
+                  <p class="moveP" id="sNum">Soldier Cats: 0</p>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="recButton" onclick="recallCats()">
+            <p>Recall All Cats</p>
+            <p class="w3-small"> Frees up all the assigned cats for reassignment</p>
+          </button>
+          <div id="lShell" hidden>
+            <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="lButton" onclick="buyLaunchers()">
+              <p class="w3-small">Buy Potato Launchers!</p>
+              <p class="w3-tiny"> Costs 5,000 potatoes, 1,000,000 french fries, and 50,000 pounds of mashed potatoes.</p>
+              <p class="w3-tiny">It's worth it - these guys are the best spud shooters around.</p>
+            </button>
+
+          </div>
+          <p id="lMessage"></p>
+          <div id="tShell" hidden>
+            <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="tButton" onclick="buyBombs()">
+              <p class="w3-small">Buy Tater Tot Bombs!</p>
+              <p class="w3-tiny"> Costs 10,000 potatoes, 3,000,000 french fries, and 150,000 pounds of mashed potatoes.</p>
+              <p class="w3-tiny">Tater tot bombs are really good. They are also edible.</p>
+            </button>
+
+          </div>
+          <p id="tMessage"></p>
+        </div>
+      </td>
+      <td id="move1">
+        <div id="bField" hidden>
+          <p id="bLoc">Battle 1: 377 Keahole St, Honolulu, HI <br> 96825 - McDonald's, Hawaii</p>
+          <p id="bDif">Battle difficulty: Very Easy</p>
+          <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="batButton" onclick="battleGo()">
+            <p>Battle!</p>
+            <p class="w3-small">Sends all soldier cats into battle.</p>
+          </button>
+          <br />
+          <div id="bRes">
+            <p id="bResult">Battle Result: NA</p>
+          </div>
+        </div>
+        <div id="pLut" hidden>
+          <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="plButton" onclick="pL()">
+            <p class="w3-small">Initate the Potatolution!</p>
+            <p class="w3-tiny"> Costs 250,000 potatoes.</p>
+            <p class="w3-tiny"> The potato tech boom begins on purchase.</p>
+          </button>
+        </div>
+      </td>
+      <td id="move2">
+        <div id="pLZ" hidden>
+          <header id="rH">
+            <h1>Potatolution Projets:</h1>
+          </header>
+          <div id="projects">
+            <div id="rayCroc">
+              <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="plButton" onclick="rC()">
+                <p class="w3-normal">Ray the Crocodile</p>
+                <p class="w3-tiny"> A cat-tamed crocodile with a hunger for hamburgers.</p>
+                <p class="w3-small">Cost: 100,000 potatoes</p>
+                <p class="w3-small">Effect: Harvests resources of all remaining McDonald's on earth.</p>
+              </button>
+            </div>
+            <div id="takeOver" hidden>
+              <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="tkButton" onclick="tK()">
+                <p class="w3-normal">Cat Spies</p>
+                <p class="w3-tiny"> Cats infiltrate governments, and take over the world.</p>
+                <p class="w3-small">Cost: 250,000 potatoes</p>
+                <p class="w3-small">Effect: All cat and potato production is now 1/10 the cost.</p>
+              </button>
+            </div>
+            <div id="spudTron" hidden>
+              <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="spButton" onclick="spudTron2000()">
+                <p class="w3-normal">Spudatron 2,000</p>
+                <p class="w3-tiny">Converts all spuddish matter back to potatoes.</p>
+                <p class="w3-small">Cost: 500,000 potatoes</p>
+                <p class="w3-small">Effect: All french fries and mashed potatoes are compressed into 1 million potatoes.</p>
+              </button>
+            </div>
+            <div id="finf" hidden>
+              <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="finfButton" onclick="finfP()">
+                <p class="w3-normal">Farms of Farms</p>
+                <p class="w3-tiny">Superfarm grows more farms.</p>
+                <p class="w3-tiny">Cost: 2,500,000 potatoes</p>
+                <p class="w3-small">Effect: 100 farms are generated per second.</p>
+              </button>
+            </div>
+            <div id="cinc" hidden>
+              <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="cincButton" onclick="cincP()">
+                <p class="w3-normal">Cat Cloning Device</p>
+                <p class="w3-tiny">Cats are made from other cats.</p>
+                <p class="w3-tiny">Cost: 500 million potatoes</p>
+                <p class="w3-small">Effect: 100 cats are generated per second. Those cats are then autoassigned to farming.</p>
+              </button>
+            </div>
+            <div id="endB" hidden>
+              <button class="w3-button w3-khaki w3-hover-yellow w3-round bump" id="endButton" onclick="endG()">
+                <p class="w3-normal">The Potato-izer</p>
+                <p class="w3-tiny">Turns every single bit of nonliving matter in the world into a potato.</p>
+                <p class="w3-tiny">Cost: 10 trillion potatoes</p>
+                <p class="w3-small">Effect: You win the game.</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div id="welcomeModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('welcomeModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Potatoz</h2>
+      </header>
+      <div class="w3-container">
+        <p>Welcome to Potatoz! A game where you are supposed to make potatoes!</p>
+        <p>Start by clicking the "make potato" button.</p>
+      </div>
+      <footer class="w3-container w3-khaki">
+        <p>NOTE: The game dosen't save your work. Make sure to keep your tap open to save all your work!</p>
+      </footer>
+    </div>
+  </div>
+  <div id="patchModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('patchModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Potato Patches Unlocked!</h2>
+      </header>
+      <div class="w3-container">
+        <p>Potato patches produce a potato every second.</p>
+        <p>You can buy a patch for 100 potatoes.</p>
+        <p>Potatoes used to buy a patch can't be used for anything else.</p>
+        <p>The price of patches increases as you buy more.</p>
+      </div>
+    </div>
+  </div>
+  <div id="farmModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('farmModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Potato Farms Unlocked!</h2>
+      </header>
+      <div class="w3-container">
+        <p>Farms produce 10 potatoes every second.</p>
+        <p>You can buy a farm for 500 potatoes.</p>
+        <p>Potatoes used to buy a farm can't be used for anything else.</p>
+        <p>The price of farms increases as you buy more.</p>
+        <p>Farms are going to be your go-to for potato production for a long time... get a lot of them!</p>
+      </div>
+    </div>
+  </div>
+  <div id="catModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('catModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Potato Cats Unlocked!</h2>
+      </header>
+      <div class="w3-container">
+        <p>Potato cats can be used for a variety of things.</p>
+        <p>They are your most important unit for nearly the rest of the game.</p>
+        <p>There are two main purposes you can use them for.</p>
+        <p>But first... save up to get a potato cat.</p>
+      </div>
+    </div>
+  </div>
+  <div id="farmercatModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('farmercatModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Farmer Cats Unlocked!</h2>
+      </header>
+      <div class="w3-container">
+        <p>Potato cats can be used as farmer cats.</p>
+        <p>A farmer cat takes your current potato production, and generates THAT every second.</p>
+        <p>Farmer cats are going to change the world.</p>
+        <p>Just assign your cat to be a farmer... and VOILA! You have a famer cat!</p>
+      </div>
+    </div>
+  </div>
+  <div id="battleModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('battleModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Soldier Cats Unlocked!</h2>
+      </header>
+      <div class="w3-container">
+        <p>Potato cats can be used as soldier cats.</p>
+        <p>Soldier cats can be used to conquer McDonalds, and harvest new resources like French Fries and Mashed Potatoes.</p>
+        <p>You can recall all your cats, and then reassign some farmers to be soldiers.</p>
+        <p>Soon, you'll be able to upgrade soldier cats with Potato Launchers and Tater Tot Bombs.</p>
+      </div>
+    </div>
+  </div>
+  <div id="lModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('lModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Potato Launchers Available!</h2>
+      </header>
+      <div class="w3-container">
+        <p>All you have to do is click the "Get Potato Launchers" button - and you get potato launchers.</p>
+        <p>But it costs 5,000 potatoes, 1,000,000 french fries, and 50,000 pounds of mashed potatoes to get launchers.</p>
+        <p>Potato launchers increase a cat soldier's performance by 50%.</p>
+        <p>However, it costs 100 potatoes to fuel a potato launcher for one battle.</p>
+      </div>
+    </div>
+  </div>
+  <div id="tModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('tModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Tater Tot Bombs Available!</h2>
+      </header>
+      <div class="w3-container">
+        <p>All you have to do is click the "Get Tater Tot Bombs" button - and you get TTBs.</p>
+        <p>But it costs 10,000 potatoes, 3,000,000 french fries, and 150,000 pounds of mashed potatoes to get TTBs.</p>
+        <p>TTBs decrease enemy defence.</p>
+        <p>Fueling a TTB costs 150 potatoes.</p>
+      </div>
+    </div>
+  </div>
+  <div id="rModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <span onclick="document.getElementById('rModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <h2>Potatolution available!</h2>
+      </header>
+      <div class="w3-container">
+        <p>Congrats on all your hard work! Cats have taken over all of Hawaii!</p>
+        <p>Now, spend two hundred fifty thousand potatoes to get the potatolution!.</p>
+        <p>The potatolution allows insane technology to be created from potatoes.</p>
+        <p>It's all worth it.</p>
+        <p>The potato-y end is near...</p>
+      </div>
+    </div>
+  </div>
+  <div id="winModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-khaki">
+        <h2>You have WON!</h2>
+      </header>
+      <div class="w3-container">
+        <p>"Well, we turned the whole world into potatoes." - Bonnie</p>
+        <p>"What do you suppose we do with them?" - Beeba</p>
+        <p>"Well, let's eat all of them!" - Bonnie</p>
+      </div>
+      <footer class="w3-container w3-khaki">
+        <p>Play again by opening a new tab!</p>
+      </footer>
+    </div>
+  </div>
+  <script src="main2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</body>
+
+</html>
