@@ -44,6 +44,7 @@ var frame = 0;
 var message = 0;
 var mTimes = [29, 59, 129, 219, 299, 349, 399, 449, 799, 1199, 1699, 1999, 2199, 2449, 2999, 4499, 7999, 9999, 11999, 14999,
   17999, 19999, 24999, 49999, 99999, 199999, 299999, 399999, 499999, 999999, 4999999, 9999999, 49999999]
+var x5x0 = "'Hava' is the first clue. Keep looking for the other ones. Upon finding all the clues, there shall be a reward."
 
 function randFloat(min, max) {
   return min + Math.random() * (max - min)
