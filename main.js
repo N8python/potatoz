@@ -43,8 +43,292 @@ var cincB = false;
 var frame = 0;
 var message = 0;
 var mTimes = [29, 59, 129, 219, 299, 349, 399, 449, 799, 1199, 1699, 1999, 2199, 2449, 2999, 4499, 7999, 9999, 11999, 14999,
-  17999, 19999, 24999, 49999, 99999, 199999, 299999, 399999, 499999, 999999, 4999999, 9999999, 49999999]
-var x5x0 = "'Hava' is the first clue. Keep looking for the other ones. Upon finding all the clues, there shall be a reward."
+  17999, 19999, 24999, 49999, 99999, 199999, 299999, 399999, 499999, 999999, 4999999, 9999999, 49999999
+]
+var project = 0;
+
+function updateproject() {
+  if (!localStorage.project) localStorage.project = 0;
+  project = Number(localStorage.project);
+  setInterval(() => {
+    localStorage.project = project
+  }, 1)
+}
+
+updateproject();
+
+function updatepotatoes() {
+  if (!localStorage.potatoes) localStorage.potatoes = 0;
+  potatoes = Number(localStorage.potatoes);
+  setInterval(() => {
+    localStorage.potatoes = potatoes
+  }, 1)
+}
+
+updatepotatoes();
+
+
+function updatefreeP() {
+  if (!localStorage.freeP) localStorage.freeP = 0;
+  freeP = Number(localStorage.freeP);
+  setInterval(() => {
+    localStorage.freeP = freeP
+  }, 1)
+}
+
+updatefreeP();
+
+
+function updatefries() {
+  if (!localStorage.fries) localStorage.fries = 0;
+  fries = Number(localStorage.fries);
+  setInterval(() => {
+    localStorage.fries = fries
+  }, 1)
+}
+
+updatefries();
+
+
+function updatemPs() {
+  if (!localStorage.mPs) localStorage.mPs = 0;
+  mPs = Number(localStorage.mPs);
+  setInterval(() => {
+    localStorage.mPs = mPs
+  }, 1)
+}
+
+updatemPs();
+
+
+function updatepatches() {
+  if (!localStorage.patches) localStorage.patches = 0;
+  patches = Number(localStorage.patches);
+  setInterval(() => {
+    localStorage.patches = patches
+  }, 1)
+}
+
+updatepatches();
+
+
+function updatepatchPrice() {
+  if (!localStorage.patchPrice) localStorage.patchPrice = 100;
+  patchPrice = Number(localStorage.patchPrice);
+  setInterval(() => {
+    localStorage.patchPrice = patchPrice
+  }, 1)
+}
+
+updatepatchPrice();
+
+
+function updatefarms() {
+  if (!localStorage.farms) localStorage.farms = 0;
+  farms = Number(localStorage.farms);
+  setInterval(() => {
+    localStorage.farms = farms
+  }, 1)
+}
+
+updatefarms();
+
+
+function updatefarmPrice() {
+  if (!localStorage.farmPrice) localStorage.farmPrice = 500;
+  farmPrice = Number(localStorage.farmPrice);
+  setInterval(() => {
+    localStorage.farmPrice = farmPrice
+  }, 1)
+}
+
+updatefarmPrice();
+
+
+function updatecats() {
+  if (!localStorage.cats) localStorage.cats = 0;
+  cats = Number(localStorage.cats);
+  setInterval(() => {
+    localStorage.cats = cats
+  }, 1)
+}
+
+updatecats();
+
+
+function updatecatPrice() {
+  if (!localStorage.catPrice) localStorage.catPrice = 1750;
+  catPrice = Number(localStorage.catPrice);
+  setInterval(() => {
+    localStorage.catPrice = catPrice
+  }, 1)
+}
+
+updatecatPrice();
+
+
+function updatefarmers() {
+  if (!localStorage.farmers) localStorage.farmers = 0;
+  farmers = Number(localStorage.farmers);
+  setInterval(() => {
+    localStorage.farmers = farmers
+  }, 1)
+}
+
+updatefarmers();
+
+
+function updatesoldiers() {
+  if (!localStorage.soldiers) localStorage.soldiers = 0;
+  soldiers = Number(localStorage.soldiers);
+  setInterval(() => {
+    localStorage.soldiers = soldiers
+  }, 1)
+}
+
+updatesoldiers();
+
+
+function updatebattle() {
+  if (!localStorage.battle) localStorage.battle = 0;
+  battle = Number(localStorage.battle);
+  setInterval(() => {
+    localStorage.battle = battle
+  }, 1)
+}
+
+updatebattle();
+
+function updatepatchB() {
+  if (!localStorage.patchB) localStorage.patchB = false;
+  patchB = JSON.parse(localStorage.patchB);
+  setInterval(() => {
+    localStorage.patchB = patchB
+  }, 1)
+}
+
+updatepatchB();
+
+
+function updatefarmB() {
+  if (!localStorage.farmB) localStorage.farmB = false;
+  farmB = JSON.parse(localStorage.farmB);
+  setInterval(() => {
+    localStorage.farmB = farmB
+  }, 1)
+}
+
+updatefarmB();
+
+
+function updatecatB() {
+  if (!localStorage.catB) localStorage.catB = false;
+  catB = JSON.parse(localStorage.catB);
+  setInterval(() => {
+    localStorage.catB = catB
+  }, 1)
+}
+
+updatecatB();
+
+
+function updatefarmerB() {
+  if (!localStorage.farmerB) localStorage.farmerB = false;
+  farmerB = JSON.parse(localStorage.farmerB);
+  setInterval(() => {
+    localStorage.farmerB = farmerB
+  }, 1)
+}
+
+updatefarmerB();
+
+
+function updatesoldierB() {
+  if (!localStorage.soldierB) localStorage.soldierB = false;
+  soldierB = JSON.parse(localStorage.soldierB);
+  setInterval(() => {
+    localStorage.soldierB = soldierB
+  }, 1)
+}
+
+updatesoldierB();
+
+
+function updatelB() {
+  if (!localStorage.lB) localStorage.lB = false;
+  lB = JSON.parse(localStorage.lB);
+  setInterval(() => {
+    localStorage.lB = lB
+  }, 1)
+}
+
+updatelB();
+
+
+function updatelBought() {
+  if (!localStorage.lBought) localStorage.lBought = false;
+  lBought = JSON.parse(localStorage.lBought);
+  setInterval(() => {
+    localStorage.lBought = lBought
+  }, 1)
+}
+
+updatelBought();
+
+
+function updatetB() {
+  if (!localStorage.tB) localStorage.tB = false;
+  tB = JSON.parse(localStorage.tB);
+  setInterval(() => {
+    localStorage.tB = tB
+  }, 1)
+}
+
+updatetB();
+
+
+function updatetBought() {
+  if (!localStorage.tBought) localStorage.tBought = false;
+  tBought = JSON.parse(localStorage.tBought);
+  setInterval(() => {
+    localStorage.tBought = tBought
+  }, 1)
+}
+
+updatetBought();
+
+
+function updaterB() {
+  if (!localStorage.rB) localStorage.rB = false;
+  rB = JSON.parse(localStorage.rB);
+  setInterval(() => {
+    localStorage.rB = rB
+  }, 1)
+}
+
+updaterB();
+
+
+function updatefinfB() {
+  if (!localStorage.finfB) localStorage.finfB = false;
+  finfB = JSON.parse(localStorage.finfB);
+  setInterval(() => {
+    localStorage.finfB = finfB
+  }, 1)
+}
+
+updatefinfB();
+
+
+function updatecincB() {
+  if (!localStorage.cincB) localStorage.cincB = false;
+  cincB = JSON.parse(localStorage.cincB);
+  setInterval(() => {
+    localStorage.cincB = cincB
+  }, 1)
+}
+
+updatecincB();
 
 function randFloat(min, max) {
   return min + Math.random() * (max - min)
@@ -126,8 +410,10 @@ function changeThing() {
 }
 
 function updateMessage() {
-  if (potatoes > mTimes[message]) {
-    message += 1;
+  for (var i = 0; i < mTimes.length; i++) {
+    if (potatoes > mTimes[message]) {
+      message += 1;
+    }
   }
 }
 
@@ -396,9 +682,10 @@ function pL() {
     document.getElementById("pLZ").removeAttribute("hidden");
     document.getElementById("lMessage").innerHTML = ""
     document.getElementById("tMessage").innerHTML = ""
+    document.getElementById("bLogic").setAttribute("hidden", "true");
     cats += soldiers;
     soldiers = 0;
-    document.getElementById("bLogic").setAttribute("hidden", "true");
+    project = 1;
   }
 }
 
@@ -409,6 +696,7 @@ function rC() {
     mPs += (94000 * 35901);
     document.getElementById("rayCroc").setAttribute("hidden", "true");
     document.getElementById("takeOver").removeAttribute("hidden");
+    project = 2;
   }
 }
 
@@ -420,6 +708,7 @@ function tK() {
     catPrice = Math.floor(catPrice / 10);
     document.getElementById("takeOver").setAttribute("hidden", "true");
     document.getElementById("spudTron").removeAttribute("hidden");
+    project = 3;
   }
 }
 
@@ -432,6 +721,7 @@ function spudTron2000() {
     mPs = 0;
     document.getElementById("spudTron").setAttribute("hidden", "true");
     document.getElementById("finf").removeAttribute("hidden");
+    project = 4;
   }
 }
 
@@ -441,6 +731,7 @@ function finfP() {
     finfB = true;
     document.getElementById("finf").setAttribute("hidden", "true");
     document.getElementById("cinc").removeAttribute("hidden");
+    project = 5;
 
   }
 }
@@ -450,16 +741,141 @@ function cincP() {
     freeP -= 500000000;
     cincB = true;
     document.getElementById("cinc").setAttribute("hidden", "true");
-    document.getElementById("endB").removeAttribute("hidden")
+    document.getElementById("endB").removeAttribute("hidden");
+    project = 6;
   }
 }
-function endG(){
-  if(freeP >= 10000000000000){
-    freeP-=10000000000000;
+
+function reset() {
+  potatoes = 0;
+  freeP = 0;
+  fries = 0;
+  mPs = 0;
+  cP = document.getElementById("changeP");
+  patchB = false;
+  patches = 0;
+  patchPrice = 100;
+  farmB = false;
+  farms = 0;
+  farmPrice = 500;
+  catB = false;
+  cats = 0;
+  catPrice = 1750;
+  farmerB = false;
+  farmers = 0;
+  soldierB = false;
+  soldiers = 0;
+  battle = 0;
+  battleDifs = [0.1, 1.2, 2.5, 4.5, 8, 11, 13, 17, 20, 25];
+  battleCs = [0, 1, 3, 5, 8, 10, 13, 14, 16, 20];
+  battleLocs = ["Battle 1: 377 Keahole St, Honolulu, HI <br> 96825 - McDonald's, Hawaii",
+    "Battle 2: 4618 Kilauea Ave, Honolulu, HI <br> 96816 - McDonald's, Hawaii",
+    "Battle 3: 2915 E Manoa Rd, Honolulu, HI <br> 96822 - McDonald's, Hawaii",
+    "Battle 4: 414 N School St, Honolulu, HI <br> 96817 - McDonald's, Hawaii",
+    "Battle 5: 2121 N Nimitz Hwy, Honolulu, HI <br> 96819 - McDonald's, Hawaii",
+    "Battle 6: 928 Valkenburgh St, Honolulu, HI <br> 96818 - McDonald's, Hawaii",
+    "Battle 7: 4561 Salt Lake Blvd, Honolulu, HI <br> 96818 - McDonald's, Hawaii",
+    "Battle 8: 98-147 Kamehameha Hwy, Aiea, HI <br> 96701 - McDonald's, Hawaii",
+    "Battle 9: 1065 Waimano Home Rd, Pearl City, HI <br> 96782 - McDonald's, Hawaii",
+    "Battle 10: 1180 Kuala St, Pearl City, HI <br> 96782 - McDonald's, Hawaii"
+  ];
+  bMDs = [1, 2, 4, 6, 8, 10, 14, 16, 18, 20];
+  battleWon = false;
+  lB = false;
+  lBought = false;
+  tB = false;
+  tBought = false;
+  rB = false;
+  finfB = false;
+  cincB = false;
+  frame = 0;
+  message = 0;
+  mTimes = [29, 59, 129, 219, 299, 349, 399, 449, 799, 1199, 1699, 1999, 2199, 2449, 2999, 4499, 7999, 9999, 11999, 14999,
+    17999, 19999, 24999, 49999, 99999, 199999, 299999, 399999, 499999, 999999, 4999999, 9999999, 49999999
+  ]
+  project = 0;
+}
+
+function endG() {
+  if (freeP >= 10000000000000) {
+    freeP -= 10000000000000;
     document.getElementById("move2").remove();
     clearInterval(intervalId);
     document.getElementById('winModal').style.display = 'block';
+    reset();
   }
 }
 
 var intervalId = setInterval(loop, 16);
+
+window.onload = () => {
+  if (patchB) {
+    document.getElementById("patchLogic").removeAttribute("hidden");
+  }
+  if (farmB) {
+    document.getElementById("farmLogic").removeAttribute("hidden");
+  }
+  if (catB) {
+    document.getElementById("catLogic").removeAttribute("hidden");
+  }
+  if (soldierB) {
+    document.getElementById("bLogic").removeAttribute("hidden");
+    document.getElementById("bField").removeAttribute("hidden");
+    document.getElementById("sRes").removeAttribute("hidden");
+  }
+  if (farmerB) {
+    document.getElementById("sLogic").removeAttribute("hidden");
+  }
+  if (lB) {
+    document.getElementById("lShell").removeAttribute("hidden");
+  }
+  if (tB) {
+    document.getElementById("tShell").removeAttribute("hidden");
+  }
+  if (rB) {
+    document.getElementById("pLut").removeAttribute("hidden");
+    document.getElementById("bField").setAttribute("hidden", "true");
+  }
+  if (battle > 9) {
+    document.getElementById("lShell").setAttribute("hidden", "true")
+    document.getElementById("tShell").setAttribute("hidden", "true")
+  }
+  if (project > 0) {
+    document.getElementById("move1").setAttribute("hidden", "true");
+    document.getElementById("pLZ").removeAttribute("hidden");
+    document.getElementById("lMessage").innerHTML = ""
+    document.getElementById("tMessage").innerHTML = ""
+    document.getElementById("bLogic").setAttribute("hidden", "true");
+    if (project === 2) {
+      document.getElementById("rayCroc").setAttribute("hidden", "true");
+      document.getElementById("takeOver").removeAttribute("hidden");
+    }
+    if (project === 3) {
+      document.getElementById("rayCroc").setAttribute("hidden", "true");
+      document.getElementById("takeOver").setAttribute("hidden", "true");
+      document.getElementById("spudTron").removeAttribute("hidden");
+    }
+    if (project === 4) {
+      document.getElementById("rayCroc").setAttribute("hidden", "true");
+      document.getElementById("spudTron").setAttribute("hidden", "true");
+      document.getElementById("finf").removeAttribute("hidden");
+    }
+    if (project === 5){
+      document.getElementById("rayCroc").setAttribute("hidden", "true");
+      document.getElementById("finf").setAttribute("hidden", "true");
+      document.getElementById("cinc").removeAttribute("hidden");
+    }
+    if (project === 6){
+      document.getElementById("rayCroc").setAttribute("hidden", "true");
+      document.getElementById("cinc").setAttribute("hidden", "true");
+      document.getElementById("endB").removeAttribute("hidden");
+    }
+  } else {
+    document.getElementById('pLZ').setAttribute("hidden", "true")
+  }
+  if(!localStorage.username){
+    localStorage.username = prompt("Enter a potatoz username (other players will see this):")
+  }
+  document.getElementById("usernameP").innerHTML = "> You're logged in as: " + "<em>" + localStorage.username + "</em>";
+
+}
