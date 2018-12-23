@@ -519,6 +519,12 @@ function chooseDif() {
 
 }
 
+function updateProgressBar(totalNum){
+  var percentage = (potatoes/totalNum)*100;
+  document.getElementById("potatozBar").setAttribute("value", percentage);
+  document.getElementById("percentageText").innerHTML = "Potato Resources Utilized Percentage: " + Number(percentage).toFixed(11) + "%";
+
+}
 function loop() {
   frame += 1;
   document.getElementById("moveUp").innerHTML = "Potatoz: " + potatoes;
@@ -539,6 +545,7 @@ function loop() {
   changeThing();
   changeModal();
   gainPotatoes();
+  updateProgressBar(10000000000000);
 }
 
 function makePotato() {
