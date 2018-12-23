@@ -4,10 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta content=’width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0′ name=’viewport’ />
-  <meta name=”viewport” content=”width=device-width” />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="potato.png">
+
+
   <title>Potatoz</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,6 +16,12 @@
     <p id="usernameP"></p>
     <br>
     <p id="changeP"> &gt; Potato production begins! </p>
+  </div>
+  <div id="progressBar">
+    <p class="w3-small" style="display: inline">Potato Resources Utilized: 0% </p>
+    <progress class="w3-yellow" style="display: inline; width: 50%;" max="100" value="80" id="potatozBar"></progress>
+    <p class="w3-small" style="display:inline">100%</p>
+    <p class="w3-small" id="percentageText">Potato Resources Utilized Percentage: </p>
   </div>
   <div id="potatoz" class="largeDiv">
     <p id="moveUp"> Potatoz: 0 </p>
@@ -185,6 +189,9 @@
         <p>Welcome to Potatoz! A game where you are supposed to make potatoes!</p>
         <p>Start by clicking the "make potato" button.</p>
       </div>
+      <footer class="w3-container w3-khaki">
+        <p>NOTE: The game dosen't save your work. Make sure to keep your tap open to save all your work!</p>
+      </footer>
     </div>
   </div>
   <div id="patchModal" class="w3-modal">
@@ -323,4 +330,3 @@
 </body>
 
 </html>
-
