@@ -1,3 +1,6 @@
+if (!localStorage.startDate) {
+  localStorage.startDate = new Date().getTime();
+}
 document.getElementById('welcomeModal').style.display = 'block';
 var potatoes = 0;
 var freeP = 0;
@@ -46,6 +49,41 @@ var mTimes = [29, 59, 129, 219, 299, 349, 399, 449, 799, 1199, 1699, 1999, 2199,
   17999, 19999, 24999, 49999, 99999, 199999, 299999, 399999, 499999, 999999, 4999999, 9999999, 49999999
 ]
 var project = 0;
+var millisPassed = 0;
+
+function msToTime(duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = parseInt((duration / 1000) % 60),
+    minutes = parseInt((duration / (1000 * 60)) % 60),
+    hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+  var finalResult = hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+  var cleanResult = finalResult.substring(0, 8)
+  var stringResult = "";
+  if (parseInt(hours) > 0) {
+    stringResult += parseInt(hours);
+    stringResult += " hours"
+    if (parseInt(minutes) > 0) {
+      stringResult += ", "
+    }
+  }
+  if (parseInt(minutes) > 0) {
+    stringResult += parseInt(minutes);
+    stringResult += " minutes"
+    if (parseInt(seconds) > 0) {
+      stringResult += ", and "
+    }
+  }
+  if (parseInt(seconds) > 0) {
+    stringResult += parseInt(seconds);
+    stringResult += " seconds"
+  }
+
+  return stringResult;
+}
 
 function updateproject() {
   if (!localStorage.project) localStorage.project = 0;
@@ -198,6 +236,17 @@ function updatebattle() {
 }
 
 updatebattle();
+
+function updateGame() {
+  if (!localStorage.millisPassed) localStorage.millisPassed = 0;
+  millisPassed = Number(localStorage.millisPassed);
+  setInterval(() => {
+    localStorage.millisPassed = millisPassed;
+    millisPassed++;
+  }, 1)
+}
+
+updateGame();
 
 function updatepatchB() {
   if (!localStorage.patchB) localStorage.patchB = false;
@@ -519,12 +568,13 @@ function chooseDif() {
 
 }
 
-function updateProgressBar(totalNum){
-  var percentage = (potatoes/totalNum)*100;
+function updateProgressBar(totalNum) {
+  var percentage = (potatoes / totalNum) * 100;
   document.getElementById("potatozBar").setAttribute("value", percentage);
   document.getElementById("percentageText").innerHTML = "Potato Resources Utilized Percentage: " + Number(percentage).toFixed(11) + "%";
 
 }
+
 function loop() {
   frame += 1;
   document.getElementById("moveUp").innerHTML = "Potatoz: " + potatoes;
@@ -541,6 +591,8 @@ function loop() {
   document.getElementById("sNum").innerHTML = "Soldier Cats: " + soldiers;
   document.getElementById("bLoc").innerHTML = battleLocs[battle];
   document.getElementById("bDif").innerHTML = "Battle Difficulty: " + chooseDif();
+  //millisPlaying = new Date().getTime() - localStorage.startDate;
+  document.getElementById("playingTime").innerHTML = "You've been playing " + msToTime(millisPassed*4) + "."
   updateMessage();
   changeThing();
   changeModal();
@@ -801,6 +853,7 @@ function reset() {
     17999, 19999, 24999, 49999, 99999, 199999, 299999, 399999, 499999, 999999, 4999999, 9999999, 49999999
   ]
   project = 0;
+  millisPassed = 0;
 }
 
 function endG() {
@@ -808,6 +861,7 @@ function endG() {
     freeP -= 10000000000000;
     document.getElementById("move2").remove();
     clearInterval(intervalId);
+    document.getElementById("playTime").innerHTML = "You took " + msToTime(millisPassed*4) + " to finish the game."
     document.getElementById('winModal').style.display = 'block';
     reset();
   }
@@ -867,12 +921,12 @@ window.onload = () => {
       document.getElementById("spudTron").setAttribute("hidden", "true");
       document.getElementById("finf").removeAttribute("hidden");
     }
-    if (project === 5){
+    if (project === 5) {
       document.getElementById("rayCroc").setAttribute("hidden", "true");
       document.getElementById("finf").setAttribute("hidden", "true");
       document.getElementById("cinc").removeAttribute("hidden");
     }
-    if (project === 6){
+    if (project === 6) {
       document.getElementById("rayCroc").setAttribute("hidden", "true");
       document.getElementById("cinc").setAttribute("hidden", "true");
       document.getElementById("endB").removeAttribute("hidden");
@@ -880,7 +934,7 @@ window.onload = () => {
   } else {
     document.getElementById('pLZ').setAttribute("hidden", "true")
   }
-  if(!localStorage.username){
+  if (!localStorage.username) {
     localStorage.username = prompt("Enter a potatoz username (other players will see this):")
   }
   document.getElementById("usernameP").innerHTML = "> You're logged in as: " + "<em>" + localStorage.username + "</em>";
